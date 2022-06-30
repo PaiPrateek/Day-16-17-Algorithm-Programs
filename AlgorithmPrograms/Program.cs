@@ -6,8 +6,10 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Insertion Sorting
+            bubbleSort();
             //Inserion sorting
-            insertionSort();
+            //insertionSort();
             // String array which has different strings
             //String[] arr = {  "Suhas", "Prajwal", "Manjesh", "Prateek", "Rakesh", "Sanath" };
 
@@ -94,27 +96,55 @@ namespace AlgorithmPrograms
         //    return -1;
         //}
 
-        public static void insertionSort()
+        //public static void insertionSort()
+        //{
+        //    //creating an arry of number
+        //    int[] arr = { 12, 85, 96, 15, 45, 9 };
+
+        //    for (int i = 1; i < arr.Length; i++)
+        //    {
+        //        int temp = arr[i];
+        //        int j = i - 1;
+
+        //        while (j >= 0 && arr[j] > temp)
+        //        {
+        //            arr[j + 1] = arr[j];
+        //            j--;
+        //        }
+        //        arr[j + 1] = temp;
+        //    }
+
+        //    for (int i = 0; i < arr.Length; i++)
+        //    {
+        //        Console.WriteLine(arr[i]);
+        //    }
+        //}
+
+        public static void bubbleSort()
         {
             //creating an arry of number
-            int[] arr = { 12, 85, 96, 15, 45, 9 };
+            int[] arr = { 78, 55, 45, 98, 13 };
 
-            for (int i = 1; i < arr.Length; i++)
+            //Creating temp variable
+            int temp;
+
+            for (int j = 0; j <= arr.Length - 2; j++)
             {
-                int temp = arr[i];
-                int j = i - 1;
-
-                while (j >= 0 && arr[j] > temp)
+                for (int i = 0; i <= arr.Length - 2; i++)
                 {
-                    arr[j + 1] = arr[j];
-                    j--;
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = temp;
+                    }
                 }
-                arr[j + 1] = temp;
             }
-
-            for (int i = 0; i < arr.Length; i++)
+            Console.WriteLine("Sorted :");
+            // Printing the sorted array
+            foreach (int p in arr)
             {
-                Console.WriteLine(arr[i]);
+                Console.Write(p + " ");
             }
         }
     }
