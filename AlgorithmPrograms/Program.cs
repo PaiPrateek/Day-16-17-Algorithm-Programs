@@ -6,15 +6,19 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
-            // creating the Array
-            int[] arr = { 12, 11, 13, 5, 6, 7 };
-            Console.WriteLine("Given Array");
-            printArray(arr);
 
-            //Getting Sorted Array by
-            sort(arr, 0, arr.Length - 1);
-            Console.WriteLine("\nSorted array");
-            printArray(arr);
+            // Anagram
+            anagram();
+
+            // creating the Array
+            //int[] arr = { 12, 11, 13, 5, 6, 7 };
+            //Console.WriteLine("Given Array");
+            //printArray(arr);
+
+            ////Getting Sorted Array by
+            //sort(arr, 0, arr.Length - 1);
+            //Console.WriteLine("\nSorted array");
+            //printArray(arr);
 
             ////Insertion Sorting
             //bubbleSort();
@@ -158,78 +162,112 @@ namespace AlgorithmPrograms
         //    }
         //}
 
-        //Creating the Merge Sort Method
-        public static void mergeSort(int[] arr, int l, int m, int r)
+        ////Creating the Merge Sort Method
+        //public static void mergeSort(int[] arr, int l, int m, int r)
+        //{
+
+        //    int n1 = m - l + 1;
+        //    int n2 = r - m;
+
+
+        //    int[] L = new int[n1];
+        //    int[] R = new int[n2];
+        //    int i, j;
+
+        //    for (i = 0; i < n1; ++i)
+        //        L[i] = arr[l + i];
+        //    for (j = 0; j < n2; ++j)
+        //        R[j] = arr[m + 1 + j];
+
+
+        //    i = 0;
+        //    j = 0;
+
+        //    int k = l;
+        //    while (i < n1 && j < n2)
+        //    {
+        //        if (L[i] <= R[j])
+        //        {
+        //            arr[k] = L[i];
+        //            i++;
+        //        }
+        //        else
+        //        {
+        //            arr[k] = R[j];
+        //            j++;
+        //        }
+        //        k++;
+        //    }
+
+        //    while (i < n1)
+        //    {
+        //        arr[k] = L[i];
+        //        i++;
+        //        k++;
+        //    }
+
+        //    while (j < n2)
+        //    {
+        //        arr[k] = R[j];
+        //        j++;
+        //        k++;
+        //    }
+        //}
+        ////Sorting the Array
+        //public static void sort(int[] arr, int l, int r)
+        //{
+        //    if (l < r)
+        //    {
+        //        int m = l + (r - l) / 2;
+        //        sort(arr, l, m);
+        //        sort(arr, m + 1, r);
+        //        mergeSort(arr, l, m, r);
+        //    }
+        //}
+        ////printing the array
+        //public static void printArray(int[] arr)
+        //{
+        //    int n = arr.Length;
+        //    for (int i = 0; i < n; ++i)
+        //    {
+        //        Console.Write(arr[i] + " ");
+        //    }
+
+        //    Console.WriteLine();
+        //}
+
+        //Creating the anagram Method
+        public static void anagram()
         {
+            string OP1, OP2;
+            //Getting the  input From the user
+            Console.WriteLine("Enter the First Word:");
+            OP1 = Console.ReadLine();
 
-            int n1 = m - l + 1;
-            int n2 = r - m;
+            //Getting the  input From the user
+            Console.WriteLine("Enter the Second Word:");
+            OP2 = Console.ReadLine();
 
+            //Converting the input Character into lowercase 
+            char[] ch1 = OP1.ToLower().ToCharArray();
+            char[] ch2 = OP2.ToLower().ToCharArray();
 
-            int[] L = new int[n1];
-            int[] R = new int[n2];
-            int i, j;
+            //Sorting character of the input
+            Array.Sort(ch1);
+            Array.Sort(ch2);
 
-            for (i = 0; i < n1; ++i)
-                L[i] = arr[l + i];
-            for (j = 0; j < n2; ++j)
-                R[j] = arr[m + 1 + j];
+            //Assigning the sorted char into string
+            string val1 = new string(ch1);
+            string val2 = new string(ch2);
 
-
-            i = 0;
-            j = 0;
-
-            int k = l;
-            while (i < n1 && j < n2)
+            if (val1 == val2)
             {
-                if (L[i] <= R[j])
-                {
-                    arr[k] = L[i];
-                    i++;
-                }
-                else
-                {
-                    arr[k] = R[j];
-                    j++;
-                }
-                k++;
+                Console.WriteLine("Both the Words are Anagrams");
             }
-
-            while (i < n1)
+            else
             {
-                arr[k] = L[i];
-                i++;
-                k++;
+                Console.WriteLine("Both the Words are not Anagrams");
             }
-
-            while (j < n2)
-            {
-                arr[k] = R[j];
-                j++;
-                k++;
-            }
-        }
-        //Sorting the Array
-        public static void sort(int[] arr, int l, int r)
-        {
-            if (l < r)
-            {
-                int m = l + (r - l) / 2;
-                sort(arr, l, m);
-                sort(arr, m + 1, r);
-                mergeSort(arr, l, m, r);
-            }
-        }
-        //printing the array
-        public static void printArray(int[] arr)
-        {
-            int n = arr.Length;
-            for (int i = 0; i < n; ++i)
-            {
-                Console.Write(arr[i] + " ");
-            }
-
-            Console.WriteLine();
         }
     }
 }
