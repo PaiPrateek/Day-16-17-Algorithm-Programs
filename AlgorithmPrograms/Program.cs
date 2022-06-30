@@ -6,9 +6,11 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Prime Numbers list from 0 to 1000
+            primeNumber();
 
-            // Anagram
-            anagram();
+            //// Anagram
+            //anagram();
 
             // creating the Array
             //int[] arr = { 12, 11, 13, 5, 6, 7 };
@@ -237,36 +239,61 @@ namespace AlgorithmPrograms
         //}
 
         //Creating the anagram Method
-        public static void anagram()
+        //public static void anagram()
+        //{
+        //    string OP1, OP2;
+        //    //Getting the  input From the user
+        //    Console.WriteLine("Enter the First Word:");
+        //    OP1 = Console.ReadLine();
+
+        //    //Getting the  input From the user
+        //    Console.WriteLine("Enter the Second Word:");
+        //    OP2 = Console.ReadLine();
+
+        //    //Converting the input Character into lowercase 
+        //    char[] ch1 = OP1.ToLower().ToCharArray();
+        //    char[] ch2 = OP2.ToLower().ToCharArray();
+
+        //    //Sorting character of the input
+        //    Array.Sort(ch1);
+        //    Array.Sort(ch2);
+
+        //    //Assigning the sorted char into string
+        //    string val1 = new string(ch1);
+        //    string val2 = new string(ch2);
+
+        //    if (val1 == val2)
+        //    {
+        //        Console.WriteLine("Both the Words are Anagrams");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Both the Words are not Anagrams");
+        //    }
+        //}
+        // Creating Prime Number Method
+        public static void primeNumber()
         {
-            string OP1, OP2;
-            //Getting the  input From the user
-            Console.WriteLine("Enter the First Word:");
-            OP1 = Console.ReadLine();
+            bool isPrime = true;
+            int i, j;
 
-            //Getting the  input From the user
-            Console.WriteLine("Enter the Second Word:");
-            OP2 = Console.ReadLine();
+            Console.WriteLine("Prime Numbers are : ");
 
-            //Converting the input Character into lowercase 
-            char[] ch1 = OP1.ToLower().ToCharArray();
-            char[] ch2 = OP2.ToLower().ToCharArray();
-
-            //Sorting character of the input
-            Array.Sort(ch1);
-            Array.Sort(ch2);
-
-            //Assigning the sorted char into string
-            string val1 = new string(ch1);
-            string val2 = new string(ch2);
-
-            if (val1 == val2)
+            for (i = 2; i <= 1000; i++)
             {
-                Console.WriteLine("Both the Words are Anagrams");
-            }
-            else
-            {
-                Console.WriteLine("Both the Words are not Anagrams");
+                for (j = 2; j <= 1000; j++)
+                {
+                    if (i != j && i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    Console.Write("\t" + i);
+                }
+                isPrime = true;
             }
         }
     }
