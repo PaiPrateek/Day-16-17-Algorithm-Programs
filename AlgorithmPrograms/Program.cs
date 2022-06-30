@@ -6,8 +6,18 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
-            //Insertion Sorting
-            bubbleSort();
+            // creating the Array
+            int[] arr = { 12, 11, 13, 5, 6, 7 };
+            Console.WriteLine("Given Array");
+            printArray(arr);
+
+            //Getting Sorted Array by
+            sort(arr, 0, arr.Length - 1);
+            Console.WriteLine("\nSorted array");
+            printArray(arr);
+
+            ////Insertion Sorting
+            //bubbleSort();
             //Inserion sorting
             //insertionSort();
             // String array which has different strings
@@ -120,32 +130,106 @@ namespace AlgorithmPrograms
         //    }
         //}
 
-        public static void bubbleSort()
+        //public static void bubbleSort()
+        //{
+        //    //creating an arry of number
+        //    int[] arr = { 78, 55, 45, 98, 13 };
+
+        //    //Creating temp variable
+        //    int temp;
+
+        //    for (int j = 0; j <= arr.Length - 2; j++)
+        //    {
+        //        for (int i = 0; i <= arr.Length - 2; i++)
+        //        {
+        //            if (arr[i] > arr[i + 1])
+        //            {
+        //                temp = arr[i + 1];
+        //                arr[i + 1] = arr[i];
+        //                arr[i] = temp;
+        //            }
+        //        }
+        //    }
+        //    Console.WriteLine("Sorted :");
+        //    // Printing the sorted array
+        //    foreach (int p in arr)
+        //    {
+        //        Console.Write(p + " ");
+        //    }
+        //}
+
+        //Creating the Merge Sort Method
+        public static void mergeSort(int[] arr, int l, int m, int r)
         {
-            //creating an arry of number
-            int[] arr = { 78, 55, 45, 98, 13 };
 
-            //Creating temp variable
-            int temp;
+            int n1 = m - l + 1;
+            int n2 = r - m;
 
-            for (int j = 0; j <= arr.Length - 2; j++)
+
+            int[] L = new int[n1];
+            int[] R = new int[n2];
+            int i, j;
+
+            for (i = 0; i < n1; ++i)
+                L[i] = arr[l + i];
+            for (j = 0; j < n2; ++j)
+                R[j] = arr[m + 1 + j];
+
+
+            i = 0;
+            j = 0;
+
+            int k = l;
+            while (i < n1 && j < n2)
             {
-                for (int i = 0; i <= arr.Length - 2; i++)
+                if (L[i] <= R[j])
                 {
-                    if (arr[i] > arr[i + 1])
-                    {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
-                    }
+                    arr[k] = L[i];
+                    i++;
                 }
+                else
+                {
+                    arr[k] = R[j];
+                    j++;
+                }
+                k++;
             }
-            Console.WriteLine("Sorted :");
-            // Printing the sorted array
-            foreach (int p in arr)
+
+            while (i < n1)
             {
-                Console.Write(p + " ");
+                arr[k] = L[i];
+                i++;
+                k++;
             }
+
+            while (j < n2)
+            {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        }
+        //Sorting the Array
+        public static void sort(int[] arr, int l, int r)
+        {
+            if (l < r)
+            {
+                int m = l + (r - l) / 2;
+                sort(arr, l, m);
+                sort(arr, m + 1, r);
+                mergeSort(arr, l, m, r);
+            }
+        }
+        //printing the array
+        public static void printArray(int[] arr)
+        {
+            int n = arr.Length;
+            for (int i = 0; i < n; ++i)
+            {
+                Console.Write(arr[i] + " ");
+            }
+
+            Console.WriteLine();
         }
     }
 }
