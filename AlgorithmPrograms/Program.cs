@@ -6,22 +6,24 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Inserion sorting
+            insertionSort();
             // String array which has different strings
-            String[] arr = {  "Suhas", "Prajwal", "Manjesh", "Prateek", "Rakesh", "Sanath" };
+            //String[] arr = {  "Suhas", "Prajwal", "Manjesh", "Prateek", "Rakesh", "Sanath" };
 
             // Searching "Prateek" string in the given array
-            String x = "Prateek";
-            int result = binarySearch(arr, x);
+            //String x = "Prateek";
+            //int result = binarySearch(arr, x);
 
-            if (result == -1)
-            {
-                Console.WriteLine("Element is not present");
-            }
+            //if (result == -1)
+            //{
+            //    Console.WriteLine("Element is not present");
+            //}
 
-            else
-            {
-                Console.WriteLine("Element found at index : " + result);
-            }
+            //else
+            //{
+            //    Console.WriteLine("Element found at index : " + result);
+            //}
 
             // Permutation of String 
 
@@ -65,32 +67,55 @@ namespace AlgorithmPrograms
         //    }
         //}
         // Method for searching the string in the string array
-        static int binarySearch(String[] arr, String x)
+        //static int binarySearch(String[] arr, String x)
+        //{
+        //    int l = 0, r = arr.Length - 1;
+        //    while (l <= r)
+        //    {
+        //        int m = l + (r - l) / 2;
+
+        //        int res = x.CompareTo(arr[m]);
+
+        //        if (res == 0)
+        //        {
+        //            return m;
+        //        }
+
+        //        if (res > 0)
+        //        {
+        //            l = m + 1;
+        //        }
+
+        //        else
+        //        {
+        //            r = m - 1;
+        //        }
+        //    }
+        //    return -1;
+        //}
+
+        public static void insertionSort()
         {
-            int l = 0, r = arr.Length - 1;
-            while (l <= r)
+            //creating an arry of number
+            int[] arr = { 12, 85, 96, 15, 45, 9 };
+
+            for (int i = 1; i < arr.Length; i++)
             {
-                int m = l + (r - l) / 2;
+                int temp = arr[i];
+                int j = i - 1;
 
-                int res = x.CompareTo(arr[m]);
-
-                if (res == 0)
+                while (j >= 0 && arr[j] > temp)
                 {
-                    return m;
+                    arr[j + 1] = arr[j];
+                    j--;
                 }
-
-                if (res > 0)
-                {
-                    l = m + 1;
-                }
-
-                else
-                {
-                    r = m - 1;
-                }
+                arr[j + 1] = temp;
             }
-            return -1;
-        }
 
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
     }
 }
