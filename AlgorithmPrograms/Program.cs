@@ -6,8 +6,13 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Customize Message Using REGEX  Method
+            CustomizeMessageREGEX.CustomizeMessage();
+
+
+
             //Find Youtr Number
-            FindYourNumber.findYourNumber();
+            //FindYourNumber.findYourNumber();
 
 
             //Prime Numbers list from 0 to 1000
