@@ -6,8 +6,12 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Find Youtr Number
+            FindYourNumber.findYourNumber();
+
+
             //Prime Numbers list from 0 to 1000
-            PrimeNumber.PrimeNumberRange();
+            //PrimeNumber.PrimeNumberRange();
             //primeNumber();
 
             //// Anagram
