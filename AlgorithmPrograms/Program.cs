@@ -7,7 +7,8 @@ namespace AlgorithmPrograms
         static void Main(string[] args)
         {
             //Prime Numbers list from 0 to 1000
-            primeNumber();
+            PrimeNumber.PrimeNumberRange();
+            //primeNumber();
 
             //// Anagram
             //anagram();
