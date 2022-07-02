@@ -6,8 +6,24 @@ namespace AlgorithmPrograms
     {
         static void Main(string[] args)
         {
+            //Generic Sorting
+            
+            int[] intarray = { 78, 96, 34, 26, 63, 48, 86 };
+            string[] stringarray = { "86", "72", "12", "56" };
+            char[] chararray = { 'Z', 'A', 'D', 'P', 'C' };
+
+
+            Console.WriteLine("Integer Sorting:");
+            GenericSorting.BubbleSort<int>(intarray);
+            Console.WriteLine("........................");
+            Console.WriteLine("String Sorting:");
+            GenericSorting.BubbleSort<string>(stringarray);
+            Console.WriteLine("........................");
+            Console.WriteLine("Char Sorting:");
+            GenericSorting.BubbleSort<Char>(chararray);
+
             //Customize Message Using REGEX  Method
-            CustomizeMessageREGEX.CustomizeMessage();
+            //CustomizeMessageREGEX.CustomizeMessage();
 
 
 
